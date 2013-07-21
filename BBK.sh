@@ -2,7 +2,7 @@
 # Bits and pieces borrowed from cvpcs and xoomdev build scripts
 # Required build variables,  adjust according to your own.
 # Path to toolchain
-  cco=~/roms/kernel/arm-eabi-4.6/bin/arm-eabi-
+  cco=~/roms/kernel/arm-linux-androideabi-4.7/bin/arm-linux-androideabi-
 # Path to build your kernel
   k=~/roms/kernel/grouper
 # Directory for the any kernel updater
