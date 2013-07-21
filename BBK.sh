@@ -7,8 +7,6 @@
   k=~/roms/kernel/grouper
 # Directory for the any kernel updater
   t=$k/tools/bbk
-# Export betas to your dropbox
-  db=~/kernel
 
 # Date to add to zip
   today=$(date +"%m_%d_%Y")
@@ -16,6 +14,7 @@
 # Clean old builds
    echo "Clean"
      rm -rf $k/out
+     rm -rf $k/arch/arm/boot/zImage
      make clean
 
 # Setup the build
@@ -57,7 +56,6 @@
      cd $k/out/$c/
        7z a "$z.zip"
          mv $z.zip $k/out/$z.zip
-cp $k/out/$z.zip $db/$z.zip
            rm -rf $k/out/$c
 # Line below for debugging purposes,  uncomment to stop script after each config is run
 #read this
