@@ -2,9 +2,9 @@
 # Bits and pieces borrowed from cvpcs and xoomdev build scripts
 # Required build variables,  adjust according to your own.
 # Path to toolchain
-  cco=~/roms/kernel/linaro/bin/arm-eabi-
+  cco=~/kernel/linaro/bin/arm-eabi-
 # Path to build your kernel
-  k=~/roms/kernel/grouper
+  k=~/kernel/grouper
 # Directory for the any kernel updater
   t=$k/tools/bbk
 
