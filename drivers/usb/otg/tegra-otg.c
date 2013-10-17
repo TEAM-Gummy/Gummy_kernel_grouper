@@ -268,6 +268,7 @@ static irqreturn_t tegra_otg_irq(int irq, void *data)
 			tegra->int_status = val;
 			tegra->detect_vbus = false;
 			schedule_work(&tegra->work);
+                }
 	} else {
 		if ((val & USB_ID_INT_STATUS) || (val & USB_VBUS_INT_STATUS)) {
 			printk(KERN_INFO "%s(): WRONG! val = %#X\n", __func__, (unsigned int)val);
