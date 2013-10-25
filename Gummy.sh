@@ -7,8 +7,6 @@
   k=~/kernel/grouper
 # Directory for the any kernel updater
   t=$k/tools/bbk
-# Path to Kernel Factory Out folder
-  kout=~/kernel/out/Grouper
 
 # Date to add to zip
   today=$(date +"%m_%d_%Y")
@@ -54,12 +52,12 @@
 
 # Build Zip
  clear
+   x=Gummy-Kernel_Grouper-$today
    echo "Creating $z.zip"
      cd $k/out/$c/
-       7z a "$z.zip"
-         mv $z.zip $k/out/$z.zip
+       7z a "$x.zip"
+         mv $x.zip $k/out/$x.zip
            rm -rf $k/out/$c
-           cp $k/out/$z.zip $kout/$z.zip
 # Line below for debugging purposes,  uncomment to stop script after each config is run
 #read this
       done
