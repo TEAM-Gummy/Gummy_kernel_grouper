@@ -1271,7 +1271,7 @@ static int __devinit smb347_probe(struct i2c_client *client,
 
 	queue_delayed_work(smb347_wq, &charger->cable_det_work, 0.5*HZ);
 
-	ret = register_otg_callback(smb347_otg_status, charger);
+	ret = register_otg_callback( (callback_t)smb347_otg_status, charger);
 	if (ret < 0)
 		goto error;
 
@@ -1289,7 +1289,7 @@ static int __devexit smb347_remove(struct i2c_client *client)
 	return 0;
 }
 
-static int smb347_suspend(struct i2c_client *client)
+static int smb347_suspend(struct i2c_client *client, pm_message_t mesg)
 {
 	charger->suspend_ongoing = 1;
 
@@ -1310,7 +1310,7 @@ static int smb347_resume(struct i2c_client *client)
 }
 
 
-static int smb347_shutdown(struct i2c_client *client)
+static void smb347_shutdown(struct i2c_client *client)
 {
 	int ret;
 	printk("smb347_shutdown+\n");
@@ -1328,7 +1328,7 @@ static int smb347_shutdown(struct i2c_client *client)
 			"otg..\n", __func__);
 
 	printk("smb347_shutdown-\n");
-	return 0;
+	return;
 }
 
 static const struct i2c_device_id smb347_id[] = {
